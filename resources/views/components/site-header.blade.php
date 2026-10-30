@@ -3,9 +3,9 @@
         <a class="wordmark" href="{{ route('home') }}" aria-label="HYBEYOND home">HYBEYOND<span>®</span></a>
         <div class="header-right">
             <nav class="desktop-nav" aria-label="Main navigation">
-                <a href="{{ route('home') }}">Home</a>
-                <a href="{{ route('artists.index') }}">Artists</a>
-                <a href="{{ route('about') }}">About</a>
+                <a href="{{ route('home') }}" @if (request()->routeIs('home')) aria-current="page" @endif>Home</a>
+                <a href="{{ route('artists.index') }}" @if (request()->routeIs('artists.*')) aria-current="page" @endif>Artists</a>
+                <a href="{{ route('about') }}" @if (request()->routeIs('about')) aria-current="page" @endif>About</a>
             </nav>
             <div class="header-actions">
                 @auth
@@ -26,9 +26,9 @@
         <details class="mobile-menu">
             <summary aria-label="Open navigation menu"><span></span><span></span></summary>
             <nav class="mobile-menu__panel" aria-label="Mobile navigation">
-                <a href="{{ route('home') }}">Home</a>
-                <a href="{{ route('artists.index') }}">Artists</a>
-                <a href="{{ route('about') }}">About</a>
+                <a href="{{ route('home') }}" @if (request()->routeIs('home')) aria-current="page" @endif>Home</a>
+                <a href="{{ route('artists.index') }}" @if (request()->routeIs('artists.*')) aria-current="page" @endif>Artists</a>
+                <a href="{{ route('about') }}" @if (request()->routeIs('about')) aria-current="page" @endif>About</a>
                 @auth
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
